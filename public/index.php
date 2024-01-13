@@ -6,4 +6,4 @@ require_once __DIR__ . '/../app/Routes/Web.php';
 
 use App\Routes\Route;
 
-Route::dispatch($_SERVER['REQUEST_URI']);
+Route::run($_SERVER['REQUEST_URI']);
