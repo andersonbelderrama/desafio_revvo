@@ -15,5 +15,19 @@ Anderson Belderrama
 
 
 
+Run Server Docker
 
-php -S localhost:8000 -t public
+`docker-compose up -d`
+
+Run Server Local
+
+`php -S localhost:8000 -t public`
+
+
+Migração via Docker
+
+`docker-compose exec web php database/migrate.php`
+
+Migração Local ou em Produção
+
+`php database/migrate.php`
