@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+  web:
+    image: php:8.2-apache
+    container_name: ${APP_NAME}-app
+    ports:
+      - "${APP_PORT:-8080}:80"
+    volumes:
+      - .:/var/www/html/${APP_NAME}
+      - ./docker/php.ini:/usr/local/etc/php/php.ini
+      - ./docker/000-default.conf:/etc/apache2/sites-available/000-default.conf
+    environment:
+      - APACHE_DOCUMENT_ROOT=/var/www/html/${APP_NAME}/public
+    depends_on:
+      - db
+    networks:
+      - my_network
+
+  db:
+    image: mariadb:latest
+    container_name: ${APP_NAME}-db
+    ports:
+      - "${DB_PORT:-3306}:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-root}
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD:-password}
+    volumes:
+      - ./docker/mariadb:/var/lib/mysql
+    networks:
+      - my_network
+
+networks:
+  my_network:
+    driver: bridge

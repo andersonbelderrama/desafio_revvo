@@ -1,2 +1,4 @@
 .env
-vendor
+/vendor
+composer.lock
+/docker/mariadb/
