@@ -12,3 +12,8 @@ Anderson Belderrama
 ## Deploy
 
 - Em Desenvolvimento.
+
+
+
+
+php -S localhost:8000 -t public

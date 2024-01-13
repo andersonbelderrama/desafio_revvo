@@ -14,5 +14,7 @@
             "email": "andersonbelderrama@gmail.com"
         }
     ],
-    "require": {}
+    "require-dev": {
+        "symfony/var-dumper": "^7.0"
+    }
 }
