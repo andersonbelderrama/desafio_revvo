@@ -13,9 +13,9 @@ Route::get('/item/{id}', function ($id) {
 });
 
 
-Route::get('/conection-test', function () {
-    $conection = Database::getConnection();
-    $conection->query('SELECT 1');
-    dd($conection);
+Route::get('/connection-test', function () {
+    $connection = Database::getConnection();
+    $connection->query('SELECT 1');
+    dd($connection);
 });
 

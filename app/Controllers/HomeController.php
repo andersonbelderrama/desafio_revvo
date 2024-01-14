@@ -2,10 +2,12 @@
 
 namespace App\Controllers;
 
-class HomeController
+class HomeController extends Controller
 {
     public function index()
     {
-        echo "Hello World";
+        $test = 'Hello World';
+
+        $this->renderView('HomeView', ['test' => $test, 'title' => 'Página Inicial']);
     }
 }
