@@ -1,55 +1,65 @@
-<div class="flex flex-col items-center space-y-6 sm:grid sm:grid-cols-2 sm:gap-4 sm:space-y-0 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
-  <div class="max-w-[310px] bg-white shadow-sm">
-    <img src="https://source.unsplash.com/random" alt="Imagem 2" class="h-[175px] w-full object-cover" />
-    <div class="p-5">
-      <h2 class="mb-2 font-bold uppercase text-gray-900">Pellentesque Malesuada</h2>
-      <p class="text-sm text-gray-500">Lorem Ipsum is simply dummy text and typesetting industry.</p>
-      <button class="font mt-6 w-full rounded-full bg-green-600 p-2 text-sm uppercase text-white">Ver Curso</button>
+<div class="home-grid-container">
+
+  <div class="home-grid-item">
+    <img src="https://source.unsplash.com/random" alt="Imagem 2" class="home-item-img" />
+    <div class="home-item-content">
+      <h2 class="home-item-title">Pellentesque Malesuada</h2>
+      <p class="home-item-text">Lorem Ipsum is simply dummy text and typesetting industry.</p>
+      <button class="home-item-btn">Ver Curso</button>
     </div>
   </div>
 
-  <div class="max-w-[310px] bg-white shadow-sm">
-    <img src="https://source.unsplash.com/random" alt="Imagem 2" class="h-[175px] w-full object-cover" />
-    <div class="p-5">
-      <h2 class="mb-2 font-bold uppercase text-gray-900">Pellentesque Malesuada</h2>
-      <p class="text-sm text-gray-500">Lorem Ipsum is simply dummy text and typesetting industry.</p>
-      <button class="font mt-6 w-full rounded-full bg-green-600 p-2 text-sm uppercase text-white">Ver Curso</button>
+  <div class="home-grid-item">
+    <img src="https://source.unsplash.com/random" alt="Imagem 2" class="home-item-img" />
+    <div class="home-item-content">
+      <h2 class="home-item-title">Pellentesque Malesuada</h2>
+      <p class="home-item-text">Lorem Ipsum is simply dummy text and typesetting industry.</p>
+      <button class="home-item-btn">Ver Curso</button>
     </div>
   </div>
 
-  <div class="max-w-[310px] bg-white shadow-sm">
-    <img src="https://source.unsplash.com/random" alt="Imagem 2" class="h-[175px] w-full object-cover" />
-    <div class="p-5">
-      <h2 class="mb-2 font-bold uppercase text-gray-900">Pellentesque Malesuada</h2>
-      <p class="text-sm text-gray-500">Lorem Ipsum is simply dummy text and typesetting industry.</p>
-      <button class="font mt-6 w-full rounded-full bg-green-600 p-2 text-sm uppercase text-white">Ver Curso</button>
+  <div class="home-grid-item">
+    <img src="https://source.unsplash.com/random" alt="Imagem 2" class="home-item-img" />
+    <div class="home-item-content">
+      <h2 class="home-item-title">Pellentesque Malesuada</h2>
+      <p class="home-item-text">Lorem Ipsum is simply dummy text and typesetting industry.</p>
+      <button class="home-item-btn">Ver Curso</button>
     </div>
   </div>
 
-  <div class="max-w-[310px] bg-white shadow-sm">
-    <img src="https://source.unsplash.com/random" alt="Imagem 2" class="h-[175px] w-full object-cover" />
-    <div class="p-5">
-      <h2 class="mb-2 font-bold uppercase text-gray-900">Pellentesque Malesuada</h2>
-      <p class="text-sm text-gray-500">Lorem Ipsum is simply dummy text and typesetting industry.</p>
-      <button class="font mt-6 w-full rounded-full bg-green-600 p-2 text-sm uppercase text-white">Ver Curso</button>
+  <div class="home-grid-item">
+    <img src="https://source.unsplash.com/random" alt="Imagem 2" class="home-item-img" />
+    <div class="home-item-content">
+      <h2 class="home-item-title">Pellentesque Malesuada</h2>
+      <p class="home-item-text">Lorem Ipsum is simply dummy text and typesetting industry.</p>
+      <button class="home-item-btn">Ver Curso</button>
     </div>
   </div>
 
-  <div class="max-w-[310px] bg-white shadow-sm">
-    <img src="https://source.unsplash.com/random" alt="Imagem 2" class="h-[175px] w-full object-cover" />
-    <div class="p-5">
-      <h2 class="mb-2 font-bold uppercase text-gray-900">Pellentesque Malesuada</h2>
-      <p class="text-sm text-gray-500">Lorem Ipsum is simply dummy text and typesetting industry.</p>
-      <button class="font mt-6 w-full rounded-full bg-green-600 p-2 text-sm uppercase text-white">Ver Curso</button>
+  <div class="home-grid-item">
+    <img src="https://source.unsplash.com/random" alt="Imagem 2" class="home-item-img" />
+    <div class="home-item-content">
+      <h2 class="home-item-title">Pellentesque Malesuada</h2>
+      <p class="home-item-text">Lorem Ipsum is simply dummy text and typesetting industry.</p>
+      <button class="home-item-btn">Ver Curso</button>
     </div>
   </div>
 
-  <div class="max-w-[310px] bg-white shadow-sm">
-    <img src="https://source.unsplash.com/random" alt="Imagem 2" class="h-[175px] w-full object-cover" />
-    <div class="p-5">
-      <h2 class="mb-2 font-bold uppercase text-gray-900">Pellentesque Malesuada</h2>
-      <p class="text-sm text-gray-500">Lorem Ipsum is simply dummy text and typesetting industry.</p>
-      <button class="font mt-6 w-full rounded-full bg-green-600 p-2 text-sm uppercase text-white hover:bg-green-700">Ver Curso</button>
+  <div class="home-grid-item">
+    <img src="https://source.unsplash.com/random" alt="Imagem 2" class="home-item-img" />
+    <div class="home-item-content">
+      <h2 class="home-item-title">Pellentesque Malesuada</h2>
+      <p class="home-item-text">Lorem Ipsum is simply dummy text and typesetting industry.</p>
+      <button class="home-item-btn">Ver Curso</button>
+    </div>
+  </div>
+
+  <div class="home-grid-item">
+    <img src="https://source.unsplash.com/random" alt="Imagem 2" class="home-item-img" />
+    <div class="home-item-content">
+      <h2 class="home-item-title">Pellentesque Malesuada</h2>
+      <p class="home-item-text">Lorem Ipsum is simply dummy text and typesetting industry.</p>
+      <button class="home-item-btn">Ver Curso</button>
     </div>
   </div>
 

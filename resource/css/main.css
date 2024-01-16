@@ -1,3 +1,191 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.main-container{
+    @apply relative flex min-h-screen flex-col overflow-hidden bg-gray-100;
+}
+
+.header-container{
+    @apply fixed z-50 flex w-full flex-row justify-between bg-white px-2 sm:px-10 pt-2 sm:pt-4 shadow-md;
+}
+
+.header-left{
+    @apply flex items-center;
+}
+
+.header-logo{
+    @apply text-5xl font-light tracking-wide;
+}
+
+.header-right{
+    @apply flex items-center space-x-2 sm:space-x-6;
+}
+
+.search-container{
+    @apply relative lg:w-[350px];
+}
+
+.search-input{
+    @apply w-full rounded-full border bg-gray-100 px-4 py-2 text-gray-400 placeholder-gray-400 focus:border-blue-500 focus:outline-none;
+}
+
+.search-input-icon{
+    @apply pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3;
+}
+
+.info-user-container{
+    @apply flex items-center border-l px-2 sm:px-4 pb-4 pt-2;
+}
+
+.info-user-img{
+    @apply h-12 w-12 rounded-full border-2 border-gray-300 bg-blue-300;
+}
+
+.info-user-name-container{
+    @apply md:flex flex-col -space-y-1 px-2 hidden;
+}
+
+.info-user-welcome{
+    @apply text-sm font-normal text-gray-400;
+}
+
+.info-user-name{
+    @apply font-medium text-gray-700;
+}
+
+.info-user-btn-more{
+    @apply p-2 sm:p-4;
+}
+
+.content{
+    @apply mx-auto p-16;
+}
+.content-title{
+    @apply mb-6 border-b border-gray-300 pb-2 text-2xl font-medium uppercase text-gray-800;
+}
+
+.slider{
+    @apply relative mt-20 max-h-80 lg:max-h-96 w-full overflow-visible bg-gray-200;
+}
+
+.slider-btn-left{
+    @apply absolute left-4 top-1/2 -translate-y-1/2 transform text-white opacity-75 focus:outline-none;
+}
+
+.slider-btn-right{
+    @apply absolute right-4 top-1/2 -translate-y-1/2 transform text-white opacity-75 focus:outline-none;
+}
+
+.slider-selector{
+    @apply absolute -bottom-4 left-1/2 z-20 flex -translate-x-1/2 transform space-x-2 overflow-visible rounded-full bg-white px-2 py-2 drop-shadow-md;
+}
+
+.slider-selector-dot{
+    @apply h-4 w-4 cursor-pointer rounded-full bg-gray-300;
+}
+
+.slider-selector-dot-active{
+    @apply h-4 w-4 cursor-pointer rounded-full bg-gray-500;
+}
+
+.slides{
+    @apply flex transition-transform duration-300 ease-in-out;
+}
+
+.slide-container{
+    @apply relative h-full w-full flex-shrink-0;
+}
+
+.slide-img{
+    @apply h-80 lg:h-96 w-full object-cover;
+}
+
+.slide-info-container{
+    @apply absolute left-20 top-1/2 flex max-w-80 -translate-y-1/2 transform flex-col space-y-6 bg-black bg-opacity-60 p-8 text-center text-white;
+}
+
+.slide-info-title{
+    @apply -mb-2 text-2xl font-bold text-left uppercase;
+}
+
+.slide-info-text{
+    @apply text-sm text-left font-light;
+}
+
+.slide-info-btn{
+    @apply w-32 rounded-full border py-2 text-xs font-medium uppercase;
+}
+
+.home-grid-container{
+    @apply flex flex-col items-center space-y-6 sm:grid sm:grid-cols-2 sm:gap-4 sm:space-y-0 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6;
+}
+
+.home-grid-item{
+    @apply max-w-[310px] bg-white shadow-sm;
+}
+
+.home-item-img{
+    @apply h-[175px] w-full object-cover;
+}
+
+.home-item-content{
+    @apply p-5;
+}
+
+.home-item-title{
+    @apply mb-2 font-bold uppercase text-gray-900;
+}
+
+.home-item-text{
+    @apply text-sm text-gray-500;
+}
+
+.home-item-btn{
+    @apply mt-6 w-full rounded-full bg-green-600 hover:bg-green-700 p-2 text-sm uppercase text-white;
+}
+
+.footer-container{
+    @apply flex flex-col bg-white;
+}
+
+.footer-left{
+    @apply flex justify-between items-center px-2 sm:px-10 py-6;
+}
+
+.footer-left-content{
+    @apply flex flex-col text-gray-500 items-start space-y-2;
+}
+
+.footer-logo{
+    @apply text-5xl font-light tracking-wide;
+}
+
+.footer-right{
+    @apply flex justify-between space-x-20;
+}
+
+.footer-right-content{
+    @apply flex flex-col space-y-2;
+}
+
+.footer-item-title{
+    @apply uppercase font-bold -tracking-wide;
+}
+
+.footer-item-text{
+    @apply text-sm text-gray-500;
+}
+
+.footer-social-container{
+    @apply text-sm text-white flex space-x-2;
+}
+
+.footer-social-item{
+    @apply flex rounded-full items-center justify-center bg-gray-400 w-10 h-10  p-2;
+}
+
+.footer-copyright{
+    @apply bg-gray-200 px-2 sm:px-10 py-2 text-gray-500 text-sm -tracking-wider;
+}
