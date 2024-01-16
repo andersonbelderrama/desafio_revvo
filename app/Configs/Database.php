@@ -2,10 +2,16 @@
 
 namespace App\Configs;
 
+use Dotenv\Dotenv;
+
 class Database
 {
     public static function getConnection()
     {
+        $dotenv = Dotenv::createImmutable(__DIR__ . '/../..');
+        $dotenv->load();
+
+
         $host = $_ENV['DB_HOST'];
         $port = $_ENV['DB_PORT'];
         $dbname = $_ENV['DB_DATABASE'];

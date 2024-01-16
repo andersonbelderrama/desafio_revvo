@@ -24,13 +24,21 @@ Run Server Local
 `php -S localhost:8000 -t public`
 
 
-Migração via Docker
+Migrar Banco de Bancos via Docker
 
 `docker-compose exec web php database/migrate.php`
 
-Migração Local ou em Produção
+Popular Banco de Dados via Docker
+
+`docker-compose exec web php database/seed.php`
+
+Migrar Banco de Bancos Local ou em Produção
 
 `php database/migrate.php`
+
+Popular Banco de Dados ou em Produção
+
+`php database/seed.php`
 
 Build Frontend(quando houver mudanças futuras)
 
