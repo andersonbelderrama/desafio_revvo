@@ -14,7 +14,7 @@
     <?php include 'SliderView.php'; ?>
     
     <div class="content">
-        <h1 class="content-title">Meus Cursos</h1>
+        <h1 class="content-title"><?php echo $title; ?></h1>
         <?php echo $content; ?>
     </div>
     

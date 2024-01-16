@@ -6,7 +6,7 @@
       <div class="home-item-content">
         <h2 class="home-item-title"><?= $course['name'] ?></h2>
         <p class="home-item-text"><?= $course['short_description'] ?></p>
-        <button class="home-item-btn">Ver Curso</button>
+        <button class="home-item-btn" onclick="window.location.href='/curso/<?= $course['id'] ?>'">Ver Curso</button>
       </div>
     </div>
   <?php endforeach; ?>

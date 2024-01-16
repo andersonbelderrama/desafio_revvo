@@ -11,6 +11,6 @@ class HomeController extends Controller
         $courseModel = new CourseModel();
         $courses = $courseModel->getAllCourses();
 
-        $this->renderView('HomeView', ['title' => 'Página Inicial', 'courses' => $courses]);
+        $this->renderView('HomeView', ['title' => 'Cursos', 'courses' => $courses]);
     }
 }

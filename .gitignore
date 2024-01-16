@@ -4,3 +4,4 @@ composer.lock
 package.lock
 /docker/mariadb/
 /node_modules
+/public/assets/img/courses

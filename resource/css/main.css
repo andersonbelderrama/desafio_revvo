@@ -60,7 +60,7 @@
 }
 
 .content{
-    @apply mx-auto p-16;
+    @apply p-16;
 }
 .content-title{
     @apply mb-6 border-b border-gray-300 pb-2 text-2xl font-medium uppercase text-gray-800;
@@ -143,6 +143,66 @@
 }
 
 .home-item-btn{
+    @apply mt-6 w-full rounded-full bg-green-600 hover:bg-green-700 p-2 text-sm uppercase text-white;
+}
+
+.generic-container{
+    @apply flex flex-col;
+}
+
+.generic-content{
+    @apply w-full bg-white shadow-sm;
+}
+
+.generic-img{
+    @apply h-[300px] w-full object-cover;
+}
+
+.generic-item-content{
+    @apply p-5;
+}
+
+.generic-item-title{
+    @apply mb-2 font-bold uppercase text-gray-900;
+}
+
+.generic-item-text{
+    @apply text-gray-500;
+}
+
+.generic-item-price{
+    @apply text-lg text-gray-500 font-bold;
+}
+
+.generic-item-btn{
+    @apply mt-6 w-full rounded-full bg-green-600 hover:bg-green-700 p-2 text-sm uppercase text-white;
+}
+
+.generic-actions{
+    @apply flex justify-end space-x-6 p-4;
+}
+
+.form-container{
+    @apply flex justify-center;
+}
+
+.form-content{
+    @apply w-full xl:w-1/2 bg-white shadow-sm px-16 py-8;
+}
+
+.form-label{
+    @apply block text-gray-500 font-bold;
+}
+
+.form-input{
+    @apply border-b border-gray-300 py-2 px-4 w-full focus:outline-none focus:border-blue-500;
+}
+
+.form-textarea{
+    @apply border-b border-gray-300 py-2 px-4 w-full focus:outline-none focus:border-blue-500;
+}
+
+.form-btn{
     @apply mt-6 w-full rounded-full bg-green-600 hover:bg-green-700 p-2 text-sm uppercase text-white;
 }
 
