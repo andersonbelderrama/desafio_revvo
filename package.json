@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npx tailwindcss build -i ./resource/css/main.css -o ./public/assets/css/main.css && cp ./resource/js/main.js ./public/assets/js/main.js",
     "watch": "npx tailwindcss -i ./resource/css/main.css -o ./public/assets/css/main.css --watch",
-    "hot-reload": "browser-sync start --proxy localhost:8000 --port 3000 --files './public/assets/css/*.css' './app/Views/**/*.php' --reload",
+    "hot-reload": "browser-sync start --proxy localhost:8000 --port 3000 --files './public/assets/css/*.css' './app/**/*.php' --reload",
     "dev": "npm run hot-reload & npm run watch"
   },
   "author": "Anderson Belderrama",

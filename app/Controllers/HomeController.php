@@ -2,12 +2,15 @@
 
 namespace App\Controllers;
 
+use App\Models\CourseModel;
+
 class HomeController extends Controller
 {
     public function index()
     {
-        $test = 'Hello World';
+        $courseModel = new CourseModel();
+        $courses = $courseModel->getAllCourses();
 
-        $this->renderView('HomeView', ['test' => $test, 'title' => 'Página Inicial']);
+        $this->renderView('HomeView', ['title' => 'Página Inicial', 'courses' => $courses]);
     }
 }
