@@ -1,13 +1,22 @@
 <div id="slider" class="relative mt-20 max-h-80 w-full overflow-visible bg-gray-200">
     <div id="slides" class="flex transition-transform duration-300 ease-in-out">
       <!-- Slide 1 -->
-      <div class="h-full w-full flex-shrink-0">
+      <div class="relative h-full w-full flex-shrink-0">
         <img src="https://source.unsplash.com/random" alt="Imagem 1" class="h-80 w-full object-cover" />
+        <div class="absolute left-20 top-1/2 flex max-w-80 -translate-y-1/2 transform flex-col space-y-6 bg-black bg-opacity-60 p-8 text-center text-white">
+          <h2 class="-mb-2 text-2xl font-bold">Lorem ipsum</h2>
+          <p class="text-sm text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempor ante sed scelerisque ornare. Donec congue neque id ex gravida mattis.</p>
+          <button class="w-32 rounded-full border py-2 text-xs font-medium uppercase">Ver Curso</button>
+        </div>
       </div>
 
       <!-- Slide 2 -->
-      <div class="h-full w-full flex-shrink-0">
+      <div class="relative h-full w-full flex-shrink-0">
         <img src="https://source.unsplash.com/random" alt="Imagem 2" class="h-80 w-full object-cover" />
+        <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform text-center text-white">
+          <h2 class="text-xl font-bold">Texto sobre a imagem 2</h2>
+          <p class="text-sm">Outras informações relevantes</p>
+        </div>
       </div>
       <!-- Adicione mais slides conforme necessário -->
     </div>
