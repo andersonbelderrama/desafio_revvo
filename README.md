@@ -31,3 +31,11 @@ Migração via Docker
 Migração Local ou em Produção
 
 `php database/migrate.php`
+
+Build Frontend(quando houver mudanças futuras)
+
+`npm run build`
+
+Run Server Test Frontend
+
+`npm run dev`
