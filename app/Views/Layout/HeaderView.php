@@ -1,6 +1,6 @@
 <header class="header-container">
     <div class="header-left">
-      <span class="header-logo">LEO</span>
+      <a href="/" class="header-logo">LEO</a>
     </div>
     <div class="header-right">
       <form action="/" method="get" class="search-container">
