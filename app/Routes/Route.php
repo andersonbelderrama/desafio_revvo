@@ -35,6 +35,10 @@ class Route
     {
         $pattern = preg_replace('/{(\w+)}/', '(\d+)', $uri);
         self::$routes[] = [$method, "#^{$pattern}$#", $action];
+
+        if ($method === 'PUT' || $method === 'PATCH') {
+            self::$routes[] = ['POST', "#^{$pattern}$#", $action];
+        }
     }
 
     public static function run($uri)

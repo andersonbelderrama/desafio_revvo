@@ -14,14 +14,24 @@ class CourseModel
         $this->connection = Database::getConnection();
     }
 
-    public function getAllCourses()
+    public function getAllCourses($limit = null, $search = null)
     {
         try {
             $query = "SELECT * FROM $this->table";
+    
+            if ($search) {
+                $query .= " WHERE name LIKE '%$search%' OR description LIKE '%$search%'";
+            }
+    
+            $query .= " ORDER BY created_at DESC";
+            
+            if ($limit && is_numeric($limit)) {
+                $query .= " LIMIT $limit";
+            }
+    
             $statement = $this->connection->query($query);
             return $statement->fetchAll(\PDO::FETCH_ASSOC);
         } catch (\PDOException $e) {
-
             die("Erro ao obter todos os cursos: " . $e->getMessage());
         }
     }
@@ -43,11 +53,11 @@ class CourseModel
     public function createCourse($data)
     {
         try {
-            $query = "INSERT INTO $this->table (name, description, shot_description, image_filename, price) VALUES (:name, :description, :shot_description, :image_filename, :price)";
+            $query = "INSERT INTO $this->table (name, description, short_description, image_filename, price) VALUES (:name, :description, :short_description, :image_filename, :price)";
             $statement = $this->connection->prepare($query);
             $statement->bindParam(':name', $data['name']);
             $statement->bindParam(':description', $data['description']);
-            $statement->bindParam(':shot_description', $data['shot_description']);
+            $statement->bindParam(':short_description', $data['short_description']);
             $statement->bindParam(':image_filename', $data['image_filename']);
             $statement->bindParam(':price', $data['price']);
             $statement->execute();
@@ -61,12 +71,12 @@ class CourseModel
     public function updateCourse($id, $data)
     {
         try {
-            $query = "UPDATE $this->table SET name = :name, description = :description, shot_description = :shot_description, image_filename = :image_filename, price = :price WHERE id = :id";
+            $query = "UPDATE $this->table SET name = :name, description = :description, short_description = :short_description, image_filename = :image_filename, price = :price WHERE id = :id";
             $statement = $this->connection->prepare($query);
             $statement->bindParam(':id', $id, \PDO::PARAM_INT);
             $statement->bindParam(':name', $data['name']);
             $statement->bindParam(':description', $data['description']);
-            $statement->bindParam(':shot_description', $data['shot_description']);
+            $statement->bindParam(':short_description', $data['short_description']);
             $statement->bindParam(':image_filename', $data['image_filename']);
             $statement->bindParam(':price', $data['price']);
             $statement->execute();

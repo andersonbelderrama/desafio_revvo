@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -14,13 +15,16 @@
     <?php include 'SliderView.php'; ?>
     
     <div class="content">
-        <h1 class="content-title"><?php echo $title; ?></h1>
-        <?php echo $content; ?>
+      <?php include 'MessagesView.php'; ?>
+      <h1 class="content-title"><?php echo $title; ?></h1>
+      <?php echo $content; ?>
     </div>
     
 
     <?php include 'FooterView.php'; ?>
   </div>
+
+
+<script src="/assets/js/main.js"></script>
 </body>
 </html>
-</div>

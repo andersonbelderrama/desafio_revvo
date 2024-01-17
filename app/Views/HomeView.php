@@ -2,7 +2,7 @@
 
   <?php foreach ($courses as $course): ?>
     <div class="home-grid-item">
-      <img src="/assets/img/courses/<?= $course['image_filename'] ?>" alt="Imagem 2" class="home-item-img" />
+      <img src="/assets/img/courses/<?= $course['image_filename'] ?>" class="home-item-img" />
       <div class="home-item-content">
         <h2 class="home-item-title"><?= $course['name'] ?></h2>
         <p class="home-item-text"><?= $course['short_description'] ?></p>

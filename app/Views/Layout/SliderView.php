@@ -1,23 +1,22 @@
 <div id="slider" class="slider">
     <div id="slides" class="slides">
 
-      <div class="slide-container">
-        <img src="https://source.unsplash.com/random" alt="Imagem 1" class="slide-img" />
-        <div class="slide-info-container">
-          <h2 class="slide-info-title">Lorem ipsum</h2>
-          <p class="slide-info-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempor ante sed scelerisque ornare. Donec congue neque id ex gravida mattis.</p>
-          <button class="slide-info-btn">Ver Curso</button>
-        </div>
-      </div>
+      <?php 
+        $courseModel = new \App\Models\CourseModel();
+        $slides = $courseModel->getAllCourses(4);
+        
+      foreach ($slides as $slide): ?>
 
-      <div class="slide-container">
-        <img src="https://source.unsplash.com/random" alt="Imagem 2" class="slide-img" />
-        <div class="slide-info-container">
-          <h2 class="slide-info-title">Lorem ipsum</h2>
-          <p class="slide-info-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempor ante sed scelerisque ornare. Donec congue neque id ex gravida mattis.</p>
-          <button class="slide-info-btn">Ver Curso</button>
+        <div class="slide-container">
+          <img src="/assets/img/courses/<?= $slide['image_filename'] ?>"  class="slide-img" />
+          <div class="slide-info-container">
+            <h2 class="slide-info-title"><?= $slide['name'] ?></h2>
+            <p class="slide-info-text"><?= $slide['short_description'] ?></p>
+            <button class="slide-info-btn" onclick="location.href='/course/<?= $slide['id'] ?>' ">Ver Curso</button>
+          </div>
         </div>
-      </div>
+
+      <?php endforeach ?>
      
     </div>
 
@@ -34,8 +33,59 @@
     </button>
 
     <div id="selector" class="slider-selector">
-      <div class="slider-selector-dot-active"></div>
-      <div class="slider-selector-dot "></div>
-      <div class="slider-selector-dot "></div>
+    <?php for ($i = 0; $i < count($slides); $i++): ?>
+      <div class="slider-selector-dot <?php echo ($i === 0) ? 'slider-selector-dot-active' : ''; ?>"></div>
+    <?php endfor; ?>
     </div>
   </div>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var currentSlide = 0;
+    var totalSlides = <?php echo count($slides); ?>;
+
+    var slidesContainer = document.getElementById('slides');
+    var prevBtn = document.getElementById('prevBtn');
+    var nextBtn = document.getElementById('nextBtn');
+    var selectorDots = document.querySelectorAll('.slider-selector-dot');
+
+    function updateSlider() {
+      slidesContainer.style.transform = 'translateX(' + -currentSlide * 100 + '%)';
+
+      selectorDots.forEach(function (dot, index) {
+        dot.classList.toggle('slider-selector-dot-active', index === currentSlide);
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateSlider();
+    }
+
+    prevBtn.addEventListener('click', function () {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      updateSlider();
+    });
+
+    nextBtn.addEventListener('click', function () {
+      nextSlide();
+    });
+
+    selectorDots.forEach(function (dot, index) {
+      dot.addEventListener('click', function () {
+        currentSlide = index;
+        updateSlider();
+      });
+    });
+
+    var timer = setInterval(nextSlide, 10000);
+
+    slidesContainer.addEventListener('mouseenter', function () {
+      clearInterval(timer);
+    });
+
+    slidesContainer.addEventListener('mouseleave', function () {
+      timer = setInterval(nextSlide, 10000);
+    });
+  });
+</script>

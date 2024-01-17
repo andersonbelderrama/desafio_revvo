@@ -11,10 +11,10 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/cursos', [CourseController::class, 'index']);
 Route::get('/curso/{id}', [CourseController::class, 'show']);
 Route::get('/curso/criar', [CourseController::class, 'create']);
-Route::post('/curso/store', [CourseController::class, 'store']);
-Route::get('/curso/{id}/editar', [CourseController::class, 'edit']);
-Route::put('/curso/{id}/update', [CourseController::class, 'update']);
-Route::delete('/curso/{id}/delete', [CourseController::class, 'delete']);
+Route::post('/curso', [CourseController::class, 'store']);
+Route::get('/curso/editar/{id}', [CourseController::class, 'edit']);
+Route::put('/curso/{id}', [CourseController::class, 'update']);
+Route::delete('/curso/{id}', [CourseController::class, 'delete']);
 
 
 Route::get('/connection-test', function () {

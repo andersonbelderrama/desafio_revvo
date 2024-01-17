@@ -1,6 +1,9 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
+    RewriteCond %{REQUEST_METHOD} ^PUT$ [NC]
+    RewriteCond %{REQUEST_METHOD} !^POST$
+
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_URI} (.+)/$
     RewriteRule ^ %1 [L,R=301]
