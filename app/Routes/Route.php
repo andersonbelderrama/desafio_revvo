@@ -33,13 +33,19 @@ class Route
 
     protected static function addRoute($method, $uri, $action)
     {
-        $pattern = preg_replace('/{(\w+)}/', '(\d+)', $uri);
+        $pattern = str_replace('/', '\/', $uri);
+        $pattern = preg_replace('/{(\w+)}/', '(\w+)', $pattern);
+        
+        // Adiciona suporte para parâmetros de consulta ?key=value
+        $pattern .= '(\?.*)?$';
+    
         self::$routes[] = [$method, "#^{$pattern}$#", $action];
-
+    
         if ($method === 'PUT' || $method === 'PATCH') {
             self::$routes[] = ['POST', "#^{$pattern}$#", $action];
         }
     }
+    
 
     public static function run($uri)
     {
@@ -65,7 +71,8 @@ class Route
                 return;
             }
         }
-
-        echo 'Página não encontrada';
+        
+        echo 'Página não encontrada ';
+        var_dump($pattern);
     }
 }

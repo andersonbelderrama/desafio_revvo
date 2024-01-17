@@ -16,10 +16,13 @@ Route::get('/curso/editar/{id}', [CourseController::class, 'edit']);
 Route::put('/curso/{id}', [CourseController::class, 'update']);
 Route::delete('/curso/{id}', [CourseController::class, 'delete']);
 
+// Route::get('/test', function () {
+//     dd($_GET['search']);
+// });
 
-Route::get('/connection-test', function () {
-    $connection = Database::getConnection();
-    $connection->query('SELECT 1');
-    dd($connection);
-});
+// Route::get('/connection-test', function () {
+//     $connection = Database::getConnection();
+//     $connection->query('SELECT 1');
+//     dd($connection);
+// });
 

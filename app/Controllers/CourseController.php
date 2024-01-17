@@ -9,11 +9,10 @@ class CourseController extends Controller
 {
     use SessionTrait;
 
-    public function index($search = null)
+    public function index()
     {
-
         $courseModel = new CourseModel();
-        $courses = $courseModel->getAllCourses(null, $search);
+        $courses = $courseModel->getAllCourses();
 
         $this->renderView('Courses.CourseListView', ['title' => 'Meus Cursos', 'courses' => $courses]);
     }

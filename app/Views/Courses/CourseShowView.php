@@ -19,3 +19,23 @@
     </div>
 
 </div>
+
+
+<script>
+function confirmDelete(courseId) {
+    if (confirm("Tem certeza que deseja excluir o curso?")) {
+        deleteCourse(courseId);
+    }
+}
+
+function deleteCourse(courseId) {
+    fetch(`/curso/${courseId}`, { method: 'DELETE' })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            window.location.href = '/cursos';
+        })
+        .catch(error => console.error('Erro ao excluir o curso:', error));
+}
+</script>

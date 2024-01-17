@@ -6,8 +6,10 @@ use App\Models\CourseModel;
 
 class HomeController extends Controller
 {
-    public function index($search = null)
+    public function index()
     {
+        $search = $_GET['search'] ?? null;
+
         $courseModel = new CourseModel();
         $courses = $courseModel->getAllCourses(null, $search);
 
