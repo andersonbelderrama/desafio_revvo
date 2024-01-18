@@ -45,9 +45,7 @@
                 class="form-textarea"
                 placeholder="Preencha com uma descrição do curso"
                 
-            >
-            <?= isset($inputData['description']) ? htmlspecialchars($inputData['description']) : '' ?>        
-        </textarea>
+            ><?= isset($inputData['description']) ? htmlspecialchars($inputData['description']) : '' ?></textarea>
         </div>
 
         <div class="mb-4">

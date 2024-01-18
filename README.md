@@ -14,7 +14,6 @@ andersonbelderrama@gmail.com
 - Docker with Docker Compose
 - Node/NPM
 
-
 ## Deploy
 
 Run Server Docker
@@ -48,6 +47,10 @@ Build Frontend(quando houver mudanças futuras)
 Run Server Test Frontend
 
 `npm run dev`
+
+Permissao Extra Pasta Imagens
+
+`chmod 777 public/assets/img/courses/`
 
 ## Informção de login
 

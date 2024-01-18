@@ -9,6 +9,6 @@
         <button class="home-item-btn" onclick="window.location.href='/curso/<?= $course['id'] ?>'">Ver Curso</button>
       </div>
     </div>
-  <?php endforeach; ?>
+  <?php endforeach;  ?>
 
 </div>
