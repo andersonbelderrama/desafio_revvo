@@ -3,17 +3,19 @@
 ## Autor
 
 Anderson Belderrama
+andersonbelderrama@gmail.com
 
 ## Tecnologias
 
-- Em Desenvolvimento.
+- PHP 8.2 with Composer
+- Javascript
+- TailwindCSS
+- MariaDB/MySQL 
+- Docker with Docker Compose
+- Node/NPM
 
 
 ## Deploy
-
-- Em Desenvolvimento.
-
-
 
 Run Server Docker
 
@@ -22,7 +24,6 @@ Run Server Docker
 Run Server Local
 
 `php -S localhost:8000 -t public`
-
 
 Migrar Banco de Bancos via Docker
 
@@ -47,3 +48,9 @@ Build Frontend(quando houver mudanças futuras)
 Run Server Test Frontend
 
 `npm run dev`
+
+## Informção de login
+
+- E-mail: test@test.com
+- Password: password
+
