@@ -39,53 +39,7 @@
     </div>
   </div>
 
-  <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    var currentSlide = 0;
-    var totalSlides = <?php echo count($slides); ?>;
 
-    var slidesContainer = document.getElementById('slides');
-    var prevBtn = document.getElementById('prevBtn');
-    var nextBtn = document.getElementById('nextBtn');
-    var selectorDots = document.querySelectorAll('.slider-selector-dot');
-
-    function updateSlider() {
-      slidesContainer.style.transform = 'translateX(' + -currentSlide * 100 + '%)';
-
-      selectorDots.forEach(function (dot, index) {
-        dot.classList.toggle('slider-selector-dot-active', index === currentSlide);
-      });
-    }
-
-    function nextSlide() {
-      currentSlide = (currentSlide + 1) % totalSlides;
-      updateSlider();
-    }
-
-    prevBtn.addEventListener('click', function () {
-      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-      updateSlider();
-    });
-
-    nextBtn.addEventListener('click', function () {
-      nextSlide();
-    });
-
-    selectorDots.forEach(function (dot, index) {
-      dot.addEventListener('click', function () {
-        currentSlide = index;
-        updateSlider();
-      });
-    });
-
-    var timer = setInterval(nextSlide, 10000);
-
-    slidesContainer.addEventListener('mouseenter', function () {
-      clearInterval(timer);
-    });
-
-    slidesContainer.addEventListener('mouseleave', function () {
-      timer = setInterval(nextSlide, 10000);
-    });
-  });
+<script>
+  window.totalSlides = <?php echo count($slides); ?>;
 </script>

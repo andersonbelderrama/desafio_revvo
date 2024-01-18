@@ -4,7 +4,7 @@
   "description": "Frontend para o desafio Revvo",
   "main": "resource/js/main.js",
   "scripts": {
-    "build": "npx tailwindcss build -i ./resource/css/main.css -o ./public/assets/css/main.css && cp ./resource/js/main.js ./public/assets/js/main.js",
+    "build": "npx tailwindcss build -i ./resource/css/main.css -o ./public/assets/css/main.css && cp ./resource/js/main.js ./public/assets/js/main.js && cp -r ./resource/img/* ./public/assets/img/",
     "watch": "npx tailwindcss -i ./resource/css/main.css -o ./public/assets/css/main.css --watch",
     "hot-reload": "browser-sync start --proxy localhost:8000 --port 3000 --files './public/assets/css/*.css' './app/**/*.php' --reload",
     "dev": "npm run hot-reload & npm run watch"

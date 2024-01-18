@@ -10,7 +10,7 @@
                 name="name"
                 class="form-input"
                 placeholder="Preencha com o nome do curso"
-                value="<?= $course['name'] ?>"
+                value="<?= isset($_POST['name']) ? $_POST['name'] : $course['name'] ?>"
             />
         </div>
 
@@ -22,19 +22,19 @@
                 name="short_description"
                 class="form-input"
                 placeholder="Preencha com uma descrição curta do curso"
-                value="<?= $course['short_description'] ?>"
+                value="<?= isset($_POST['short_description']) ? $_POST['short_description'] : $course['short_description'] ?>"
             />
         </div>
 
         <div class="mb-4">
-            <label for="price" class="form-label">Preço</label>
+            <label for="price" class="form-label">Preço(Ex. 999.99)</label>
             <input
                 type="text"
                 id="price"
                 name="price"
                 class="form-input"
                 placeholder="Preencha com o preço do curso"
-                value="<?= $course['price'] ?>"
+                value="<?= isset($_POST['price']) ? $_POST['price'] : $course['price'] ?>"
             />
         </div>
 
@@ -45,7 +45,7 @@
                 name="description"
                 class="form-textarea"
                 placeholder="Preencha com uma descrição do curso"
-            ><?= $course['description'] ?></textarea>
+            ><?= isset($_POST['description']) ? $_POST['description'] : $course['description'] ?></textarea>
         </div>
 
         <div class="mb-4">

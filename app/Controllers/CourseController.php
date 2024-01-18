@@ -76,15 +76,23 @@ class CourseController extends Controller
         }
 
         if (!$imageUploaded) {
-            $this->setSessionError('Imagem é obrigatória para este curso.');
-            header('Location: ' . $_SERVER['HTTP_REFERER']);
+            $this->setSessionError('Imagem é obrigatória para criar curso.');
+            $this->renderView('Courses.CourseCreateView', [
+                'title' => 'Criar Curso',
+                'inputData' => $_POST,
+                'error' => 'Imagem é obrigatória para criar curso.'
+            ]);
             exit;
         }
 
         $shortDescription = $_POST['short_description'];
         if (strlen($shortDescription) > 70) {
             $this->setSessionError('A descrição curta deve ter no máximo 70 caracteres.');
-            header('Location: ' . $_SERVER['HTTP_REFERER']);
+            $this->renderView('Courses.CourseCreateView', [
+                'title' => 'Criar Curso',
+                'inputData' => $_POST,
+                'error' => 'A descrição curta deve ter no mínimo 70 caracteres.'
+            ]);
             exit;
         }
 
@@ -159,15 +167,31 @@ class CourseController extends Controller
         
         if (!$imageUploaded) {
             $this->setSessionError('Imagem é obrigatória para este curso.');
-            header('Location: ' . $_SERVER['HTTP_REFERER']);
+            $this->renderView('Courses.CourseCreateView', [
+                'title' => 'Criar Curso',
+                'inputData' => $_POST,
+                'error' => 'Imagem é obrigatória para criar curso.'
+            ]);
             exit;
         }
+
+        $shortDescription = $_POST['short_description'];
+        if (strlen($shortDescription) > 70) {
+            $this->setSessionError('A descrição curta deve ter no máximo 70 caracteres.');
+            $this->renderView('Courses.CourseCreateView', [
+                'title' => 'Criar Curso',
+                'inputData' => $_POST,
+                'error' => 'A descrição curta deve ter no mínimo 70 caracteres.'
+            ]);
+            exit;
+        }
+
 
         $price = str_replace(',', '.', $_POST['price']);
 
         $data = [
             'name' => $_POST['name'],
-            'short_description' => $_POST['short_description'],
+            'short_description' => $shortDescription,
             'description' => $_POST['description'],
             'price' => $price,
             'image_filename' => $image_filename

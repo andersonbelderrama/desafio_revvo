@@ -9,6 +9,7 @@
                 name="name"
                 class="form-input"
                 placeholder="Preencha com o nome do curso"
+                value="<?= isset($inputData['name']) ? htmlspecialchars($inputData['name']) : '' ?>"
             />
         </div>
 
@@ -20,17 +21,19 @@
                 name="short_description"
                 class="form-input"
                 placeholder="Preencha com uma descrição curta do curso"
+                value="<?= isset($inputData['short_description']) ? htmlspecialchars($inputData['short_description']) : '' ?>"
             />
         </div>
 
         <div class="mb-4">
-            <label for="price" class="form-label">Preço</label>
+            <label for="price" class="form-label">Preço(Ex. 999.99)</label>
             <input
                 type="text"
                 id="price"
                 name="price"
                 class="form-input"
                 placeholder="Preencha com o preço do curso"
+                value="<?= isset($inputData['price']) ? htmlspecialchars($inputData['price']) : '' ?>"
             />
         </div>
 
@@ -41,7 +44,10 @@
                 name="description"
                 class="form-textarea"
                 placeholder="Preencha com uma descrição do curso"
-            ></textarea>
+                
+            >
+            <?= isset($inputData['description']) ? htmlspecialchars($inputData['description']) : '' ?>        
+        </textarea>
         </div>
 
         <div class="mb-4">

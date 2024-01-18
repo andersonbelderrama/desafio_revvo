@@ -1,4 +1,8 @@
-<?php session_start(); ?>
+<?php 
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+} 
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -24,7 +28,8 @@
     <?php include 'FooterView.php'; ?>
   </div>
 
-
+  
+<?php include 'ModalView.php'; ?>
 <script src="/assets/js/main.js"></script>
 </body>
 </html>

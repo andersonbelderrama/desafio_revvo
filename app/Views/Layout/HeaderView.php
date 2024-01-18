@@ -25,12 +25,12 @@
             <span class="info-user-welcome">Seja bem-vindo</span>
             <span class="info-user-name"><?= $user['full_name'] ?></span>
           </div>
-          <button class="dropdown-button info-user-btn-more" onclick="toggleDropdown()">
+          <button id="dropdownUserButton" class="info-user-btn-more" onclick="toggleDropdown()">
             <svg xmlns="http://www.w3.org/2000/svg" height="16" width="10" viewBox="0 0 320 512">
               <path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z" />
             </svg>
           </button>
-          <div id="dropdownContent" class="absolute -bottom-20 right-0 w-full hidden bg-white z-50 shadow-lg border-l border-r border-b border-gray-500">
+          <div id="dropdownUserContent" class="absolute -bottom-20 right-0 w-full hidden bg-white z-50 shadow-lg border-l border-r border-b border-gray-500">
             <ul class="info-user-menu">
               <li class="hover:bg-gray-100 px-4 py-2">
                 <a class="block" href="/cursos">Meus Cursos</a>
@@ -49,22 +49,3 @@
       <?php endif; ?>
     </div>
   </header>
-
-
-  <script>
-    // Função para alternar a visibilidade do dropdown
-    function toggleDropdown() {
-        var dropdownContent = document.getElementById("dropdownContent");
-        dropdownContent.style.display = (dropdownContent.style.display === "block") ? "none" : "block";
-    }
-
-    // Fechar o dropdown se o usuário clicar fora dele
-    window.onclick = function(event) {
-        if (!event.target.matches('.dropdown-button')) {
-            var dropdownContent = document.getElementById("dropdownContent");
-            if (dropdownContent.style.display === "block") {
-                dropdownContent.style.display = "none";
-            }
-        }
-    }
-</script>
