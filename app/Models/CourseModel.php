@@ -12,6 +12,7 @@ class CourseModel
     public function __construct()
     {
         $this->connection = Database::getConnection();
+        
     }
 
     public function getAllCourses($limit = null, $search = null)
@@ -36,6 +37,24 @@ class CourseModel
         }
     }
 
+    public function getAllCoursesByAuthUser()
+    {
+        if (isset($_COOKIE['user_id'])) {
+            $userId = $_COOKIE['user_id'];
+        } else {
+            return [];
+        }
+
+        try {
+            $query = "SELECT * FROM $this->table WHERE user_id = $userId ORDER BY created_at DESC";
+    
+            $statement = $this->connection->query($query);
+            return $statement->fetchAll(\PDO::FETCH_ASSOC);
+        } catch (\PDOException $e) {
+            die("Erro ao obter todos os cursos: " . $e->getMessage());
+        }
+    }
+
     public function getCourseById($id)
     {
         try {
@@ -52,14 +71,21 @@ class CourseModel
 
     public function createCourse($data)
     {
+        if (isset($_COOKIE['user_id'])) {
+            $userId = $_COOKIE['user_id'];
+        } else {
+            return [];
+        }
+
         try {
-            $query = "INSERT INTO $this->table (name, description, short_description, image_filename, price) VALUES (:name, :description, :short_description, :image_filename, :price)";
+            $query = "INSERT INTO $this->table (name, description, short_description, image_filename, price, user_id) VALUES (:name, :description, :short_description, :image_filename, :price , :user_id)";
             $statement = $this->connection->prepare($query);
             $statement->bindParam(':name', $data['name']);
             $statement->bindParam(':description', $data['description']);
             $statement->bindParam(':short_description', $data['short_description']);
             $statement->bindParam(':image_filename', $data['image_filename']);
             $statement->bindParam(':price', $data['price']);
+            $statement->bindParam(':user_id', $userId);
             $statement->execute();
             return $this->connection->lastInsertId();
         } catch (\PDOException $e) {

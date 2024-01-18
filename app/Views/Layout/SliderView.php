@@ -12,7 +12,7 @@
           <div class="slide-info-container">
             <h2 class="slide-info-title"><?= $slide['name'] ?></h2>
             <p class="slide-info-text"><?= $slide['short_description'] ?></p>
-            <button class="slide-info-btn" onclick="location.href='/course/<?= $slide['id'] ?>' ">Ver Curso</button>
+            <button class="slide-info-btn" onclick="location.href='/curso/<?= $slide['id'] ?>' ">Ver Curso</button>
           </div>
         </div>
 

@@ -35,22 +35,24 @@ class Route
     {
         $pattern = str_replace('/', '\/', $uri);
         $pattern = preg_replace('/{(\w+)}/', '(\w+)', $pattern);
-        
+
         // Adiciona suporte para parâmetros de consulta ?key=value
-        $pattern .= '(\?.*)?$';
-    
+        $pattern .= '(\\?.*)?$';
+
         self::$routes[] = [$method, "#^{$pattern}$#", $action];
-    
+
         if ($method === 'PUT' || $method === 'PATCH') {
             self::$routes[] = ['POST', "#^{$pattern}$#", $action];
         }
-    }
-    
+    }    
 
     public static function run($uri)
     {
         foreach (self::$routes as $route) {
             list($method, $pattern, $action) = $route;
+
+            // Remover a parte da URL após "?"
+            $uri = preg_replace('/\?.*/', '', $uri);
 
             if ($_SERVER['REQUEST_METHOD'] === $method && preg_match($pattern, $uri, $matches)) {
                 array_shift($matches); 
@@ -62,6 +64,13 @@ class Route
 
                 if (is_array($action) && count($action) === 2) {
                     [$controllerClass, $method] = $action;
+
+                    // Verificar se a rota é "create" antes de chamar o método
+                    if ($method === 'create' && !method_exists($controllerClass, 'create')) {
+                        echo 'Método "create" não encontrado no controller';
+                        return;
+                    }
+
                     $controller = new $controllerClass();
                     $controller->$method(...$matches);
                     return;
@@ -71,8 +80,7 @@ class Route
                 return;
             }
         }
-        
-        echo 'Página não encontrada ';
-        var_dump($pattern);
+
+        echo 'Página não encontrada';
     }
 }

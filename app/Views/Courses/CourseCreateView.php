@@ -1,7 +1,6 @@
 <div class="form-container">
 
     <form class="form-content" method="post" action="/curso" enctype="multipart/form-data"> 
-
         <div class="mb-4">
             <label for="name" class="form-label">Nome</label>
             <input

@@ -9,10 +9,21 @@ class CourseController extends Controller
 {
     use SessionTrait;
 
+    private function isAuthenticated()
+    {
+        // Verifique a autenticação conforme necessário
+        return isset($_COOKIE['user_id']);
+    }
+
     public function index()
     {
+        if (!$this->isAuthenticated()) {
+            header("Location: /login");
+            exit();
+        }
+
         $courseModel = new CourseModel();
-        $courses = $courseModel->getAllCourses();
+        $courses = $courseModel->getAllCoursesByAuthUser();
 
         $this->renderView('Courses.CourseListView', ['title' => 'Meus Cursos', 'courses' => $courses]);
     }
@@ -24,17 +35,29 @@ class CourseController extends Controller
 
         $course['price'] = number_format($course['price'], 2, ',', '.');
 
-        $this->renderView('Courses.CourseShowView', ['title' => $course['name'], 'course' => $course]);
+        $authUser = $_COOKIE['user_id'] ?? null;
+
+        $this->renderView('Courses.CourseShowView', ['title' => $course['name'], 'course' => $course, 'authUser' => $authUser]);
     }
 
     public function create()
     {
+        if (!$this->isAuthenticated()) {
+            header("Location: /login");
+            exit();
+        }
+
         $this->renderView('Courses.CourseCreateView', ['title' => 'Criar Curso']);
     }
 
     public function store()
     {
        
+        if (!$this->isAuthenticated()) {
+            header("Location: /login");
+            exit();
+        }
+
         $imageUploaded = false;
 
         if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
@@ -87,6 +110,12 @@ class CourseController extends Controller
 
     public function edit($id)
     {
+
+        if (!$this->isAuthenticated()) {
+            header("Location: /login");
+            exit();
+        }
+
         $courseModel = new CourseModel();
         $course = $courseModel->getCourseById($id);
 
@@ -95,6 +124,12 @@ class CourseController extends Controller
 
     public function update($id)
     {
+
+        if (!$this->isAuthenticated()) {
+            header("Location: /login");
+            exit();
+        }
+
         $courseModel = new CourseModel();
         $course = $courseModel->getCourseById($id);
 
@@ -149,6 +184,12 @@ class CourseController extends Controller
 
     public function delete($id)
     {
+
+        if (!$this->isAuthenticated()) {
+            header("Location: /login");
+            exit();
+        }
+
         $courseModel = new CourseModel();
         $courseModel->deleteCourse($id);
 
