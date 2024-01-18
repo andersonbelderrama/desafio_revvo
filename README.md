@@ -16,6 +16,12 @@ andersonbelderrama@gmail.com
 
 ## Deploy
 
+Start
+
+`composer install`
+
+`npm install`
+
 Run Server Docker
 
 `docker-compose up -d`
